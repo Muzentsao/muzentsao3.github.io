@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>木人艸萬聖節活動服務｜高級派對佈置與餐點</title>
+    <meta name="description" content="深色奢華 × 暖光質感的一站式萬聖節派對服務，從精緻餐點、主題佈置到現場服務，雙北與桃園皆可預約。" />
+    <meta name="keywords" content="萬聖節外燴, 企業派對佈置, 室內派對餐點, 木人艸" />
+    <meta name="theme-color" content="#121212" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              onyx: '#121212',
+              coal: '#181818',
+              parchment: '#F3EEE6',
+              sand: '#BFB8AC',
+              wheat: '#E6D3B0',
+              amberdeep: '#D88A3D',
+              graphite: '#2A2A2A'
+            },
+            fontFamily: {
+              sans: ['Noto Sans TC', 'Inter', 'ui-sans-serif', 'system-ui'],
+              serif: ['Noto Serif TC', 'ui-serif', 'Georgia'],
+              display: ['Playfair Display', 'Noto Serif TC']
+            },
+            boxShadow: {
+              glow: '0 0 0 1px rgba(232, 219, 204, 0.1), 0 10px 30px rgba(0,0,0,0.45)'
+            },
+            keyframes: {
+              fadeIn: { '0%': { opacity: 0, transform: 'translateY(6px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+            },
+            animation: { fade: 'fadeIn 250ms ease-out both' }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Custom hover brightness +8% */
+      .hover\:brightness-108:hover { filter: brightness(1.08); }
+      /* Lightbox */
+      .lightbox-backdrop { background: rgba(0,0,0,.9); }
+      .text-gradient { background: linear-gradient(180deg,#F3EEE6 0%, #E6D3B0 100%); -webkit-background-clip:text; background-clip:text; color: transparent; }
+      /* Reduce focus rings only to keyboard */
+      :focus-visible { outline: 2px solid #D88A3D; outline-offset: 2px; }
+    </style>
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="木人艸萬聖節活動服務｜高級派對佈置與餐點" />
+    <meta property="og:description" content="深色奢華 × 暖光質感的一站式萬聖節派對服務，從精緻餐點、主題佈置到現場服務，雙北與桃園皆可預約。" />
+    <meta property="og:image" content="/assets/og.jpg" />
+
+    <!-- JSON-LD (可保留/可移除) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "木人艸萬聖節活動服務",
+        "areaServed": ["臺北市","新北市","桃園市"],
+        "url": "https://YOUR-DOMAIN",
+        "image": "/assets/og.jpg",
+        "description": "深色奢華 × 暖光質感的一站式萬聖節派對服務。"
+      }
+    </script>
+  </head>
+
+  <body class="bg-onyx text-parchment font-sans antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 backdrop-blur bg-onyx/70 border-b border-graphite/60">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2 group">
+          <span class="text-amberdeep text-2xl">◆</span>
+          <span class="font-serif text-lg tracking-widest group-hover:opacity-90">木人艸</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#plans" class="hover:brightness-108 transition">方案</a>
+          <a href="#gallery" class="hover:brightness-108 transition">圖庫</a>
+          <a href="#faq" class="hover:brightness-108 transition">FAQ</a>
+          <a href="#contact" class="hover:brightness-108 transition">洽詢</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="#plans" class="inline-flex items-center rounded-full bg-amberdeep text-onyx px-4 py-2 text-sm font-semibold shadow-glow hover:brightness-108 transition" data-cta="top-plan">立刻看方案</a>
+          <a href="#contact" class="hidden sm:inline-flex items-center rounded-full border border-wheat/40 px-4 py-2 text-sm hover:brightness-108 transition" data-cta="top-line">加 LINE 詢價</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-coal">
+        <img src="/assets/hero.jpg" alt="暖光霧面、黑器皿與銅燭台的萬聖節場景" class="w-full h-full object-cover opacity-50" />
+        <div class="absolute inset-0 bg-gradient-to-b from-onyx/40 via-onyx/60 to-onyx"></div>
+      </div>
+      <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+        <h1 class="font-serif text-4xl md:text-5xl leading-tight animate-fade" aria-label="木人艸萬聖節活動服務">木人艸萬聖節活動服務</h1>
+        <p class="mt-4 max-w-2xl text-sand animate-fade" style="animation-delay:80ms">深色奢華 × 暖光質感｜從餐點到場佈，一站式打造高級驚悚派對</p>
+        <div class="mt-8 flex flex-wrap gap-3 animate-fade" style="animation-delay:120ms">
+          <a href="#plans" class="inline-flex items-center rounded-full bg-amberdeep text-onyx px-6 py-3 font-semibold shadow-glow hover:brightness-108 transition" data-cta="hero-plan">立刻看方案</a>
+          <a href="#contact" class="inline-flex items-center rounded-full border border-wheat/40 px-6 py-3 hover:brightness-108 transition" data-cta="hero-line">加 LINE 詢價</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three selling points -->
+    <section class="bg-onyx">
+      <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade">
+          <div class="text-gradient font-display text-xl">一站式佈置到撤場</div>
+          <p class="mt-2 text-sand">專人進出場與動線設計，現場無縫銜接。</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:60ms">
+          <div class="text-gradient font-display text-xl">客製主題與餐點</div>
+          <p class="mt-2 text-sand">品牌色、道具、菜色皆可客製搭配。</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:120ms">
+          <div class="text-gradient font-display text-xl">專人現場服務</div>
+          <p class="mt-2 text-sand">專業服務人員，維持場面與用餐品質。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans -->
+    <section id="plans" class="bg-coal">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="font-serif text-2xl mb-6">方案與價格</h2>
+        <p class="text-sand mb-8">人數、餐點與服務時數可彈性調整，以下價格為參考起價。</p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- 入門 -->
+          <article class="p-6 rounded-2xl bg-onyx border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade">
+            <div class="flex items-baseline justify-between">
+              <h3 class="font-serif text-xl">入門</h3>
+              <span class="text-wheat/90 text-sm">20–30人</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-sand">
+              <li>餐點12款</li>
+              <li>基礎佈置</li>
+              <li>3小時服務</li>
+            </ul>
+            <div class="mt-6 flex items-center justify-between">
+              <div class="text-amberdeep font-bold">NT$15,000起</div>
+              <a href="#contact" class="text-sm underline hover:brightness-108">洽詢此方案</a>
+            </div>
+          </article>
+          <!-- 經典 -->
+          <article class="p-6 rounded-2xl bg-onyx border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:60ms">
+            <div class="flex items-baseline justify-between">
+              <h3 class="font-serif text-xl">經典</h3>
+              <span class="text-wheat/90 text-sm">40–60人</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-sand">
+              <li>餐點18款</li>
+              <li>主題道具＋花藝</li>
+              <li>4小時</li>
+            </ul>
+            <div class="mt-6 flex items-center justify-between">
+              <div class="text-amberdeep font-bold">NT$35,000起</div>
+              <a href="#contact" class="text-sm underline hover:brightness-108">洽詢此方案</a>
+            </div>
+          </article>
+          <!-- 尊爵 -->
+          <article class="p-6 rounded-2xl bg-onyx border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:120ms">
+            <div class="flex items-baseline justify-between">
+              <h3 class="font-serif text-xl">尊爵</h3>
+              <span class="text-wheat/90 text-sm">80–100人</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-sand">
+              <li>餐點24款</li>
+              <li>大型佈置＋乾冰吧台</li>
+              <li>5小時</li>
+            </ul>
+            <div class="mt-6 flex items-center justify-between">
+              <div class="text-amberdeep font-bold">NT$65,000起</div>
+              <a href="#contact" class="text-sm underline hover:brightness-108">洽詢此方案</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-8 p-4 rounded-xl border border-graphite/60 bg-onyx/60">
+          <p class="text-sand">加購：乾冰特效／花藝升級／香檳塔／攝影</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="bg-onyx">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="font-serif text-2xl mb-6">圖庫</h2>
+        <p class="text-sand mb-6">6–9 張，支援 Lightbox 檢視。</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <!-- Replace src with /assets/*.jpg -->
+          <button class="group relative overflow-hidden rounded-xl focus:outline-none" data-full="/assets/g1.jpg" aria-label="查看大圖">
+            <img src="/assets/g1.jpg" alt="萬聖節佈置示意1" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g2.jpg" aria-label="查看大圖">
+            <img src="/assets/g2.jpg" alt="萬聖節佈置示意2" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g3.jpg" aria-label="查看大圖">
+            <img src="/assets/g3.jpg" alt="萬聖節佈置示意3" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g4.jpg" aria-label="查看大圖">
+            <img src="/assets/g4.jpg" alt="萬聖節佈置示意4" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g5.jpg" aria-label="查看大圖">
+            <img src="/assets/g5.jpg" alt="萬聖節佈置示意5" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g6.jpg" aria-label="查看大圖">
+            <img src="/assets/g6.jpg" alt="萬聖節佈置示意6" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <!-- Optional 7–9 -->
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g7.jpg" aria-label="查看大圖">
+            <img src="/assets/g7.jpg" alt="萬聖節佈置示意7" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g8.jpg" aria-label="查看大圖">
+            <img src="/assets/g8.jpg" alt="萬聖節佈置示意8" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g9.jpg" aria-label="查看大圖">
+            <img src="/assets/g9.jpg" alt="萬聖節佈置示意9" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-coal">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="font-serif text-2xl mb-6">常見問題</h2>
+        <div class="space-y-3">
+          <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade">
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span>檔期怎麼預約？</span>
+              <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
+            </summary>
+            <p class="mt-2 text-sand">建議至少提前三週提出需求並完成訂金。旺季以實際檔期為準。</p>
+          </details>
+          <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:60ms">
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span>最小金額與人數？</span>
+              <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
+            </summary>
+            <p class="mt-2 text-sand">建議最低 NT$15,000 起，20 人以上更具CP值，可彈性客製。</p>
+          </details>
+          <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:120ms">
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span>場地需求為何？</span>
+              <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
+            </summary>
+            <p class="mt-2 text-sand">需提供佈置空間、餐檯區與垃圾集中區。若樓層高，請先確認電梯與動線。</p>
+          </details>
+          <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:180ms">
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span>電力需求與設備？</span>
+              <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
+            </summary>
+            <p class="mt-2 text-sand">一般110V插座2–3處即可。需乾冰或加熱設備時，將於估價單註明。</p>
+          </details>
+          <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:240ms">
+            <summary class="cursor-pointer list-none flex items-center justify-between">
+              <span>下雨或天候不佳？</span>
+              <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
+            </summary>
+            <p class="mt-2 text-sand">可改為室內方案或調整時間；相關費用依契約彈性處理。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Form -->
+    <section id="contact" class="bg-onyx">
+      <div class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="font-serif text-2xl mb-6">預約洽詢</h2>
+        <p class="text-sand mb-6">請留下活動資訊，我們將於1–2個工作日回覆。</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <form action="#" method="POST" class="space-y-4" id="quote-form">
+            <!-- TODO: 將 action 換成你的 Google 表單或後端 API -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm">姓名/公司</span>
+                <input name="name" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="王小姐／木人艸" />
+              </label>
+              <label class="block">
+                <span class="text-sm">活動日期</span>
+                <input type="date" name="date" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" />
+              </label>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm">人數</span>
+                <input type="number" min="1" step="1" name="people" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="40" />
+              </label>
+              <label class="block">
+                <span class="text-sm">預算（NT$）</span>
+                <input type="number" min="0" step="1000" name="budget" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="35000" />
+              </label>
+            </div>
+            <label class="block">
+              <span class="text-sm">場地地址</span>
+              <input name="address" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="台北市 ×× 區 ×× 路 ×× 號 × 樓" />
+            </label>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm">聯絡方式（LINE）</span>
+                <input name="line" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="@yourlineid" />
+              </label>
+              <label class="block">
+                <span class="text-sm">聯絡方式（Email）</span>
+                <input type="email" name="email" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="you@example.com" />
+              </label>
+            </div>
+            <div class="flex items-center gap-3 pt-2">
+              <button type="submit" class="rounded-full bg-amberdeep text-onyx px-6 py-3 font-semibold shadow-glow hover:brightness-108 transition" data-cta="form-submit">送出表單</button>
+              <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" target="_blank" rel="noopener" class="rounded-full border border-wheat/40 px-6 py-3 hover:brightness-108 transition" data-cta="form-line">加 LINE 詢價</a>
+            </div>
+            <p class="text-xs text-sand/70">我們重視您的隱私，資料僅用於本次服務聯繫。</p>
+          </form>
+
+          <aside class="p-6 rounded-2xl bg-coal border border-graphite/60 shadow-glow">
+            <h3 class="font-serif text-xl">小提醒</h3>
+            <ul class="mt-4 space-y-2 text-sand">
+              <li>檔期以訂金為準，請盡早預約。</li>
+              <li>可客製品牌色與主題道具。</li>
+              <li>建議提供場地平面圖以利動線規劃。</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-coal border-t border-graphite/60">
+      <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="font-serif text-lg">木人艸</div>
+          <p class="text-sand mt-2">深色奢華 × 暖光質感的萬聖節派對服務。</p>
+        </div>
+        <div>
+          <div class="text-sm text-sand">服務範圍</div>
+          <p class="text-sand/80 mt-2">雙北、桃園｜企業、學校、教會、家庭聚會</p>
+        </div>
+        <div>
+          <div class="text-sm text-sand">快速連結</div>
+          <div class="mt-2 flex flex-wrap gap-3">
+            <a href="#plans" class="underline hover:brightness-108">方案</a>
+            <a href="#gallery" class="underline hover:brightness-108">圖庫</a>
+            <a href="#faq" class="underline hover:brightness-108">FAQ</a>
+            <a href="#contact" class="underline hover:brightness-108">洽詢</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-graphite/60 text-center text-xs text-sand/70 py-4">© <span id="y"></span> 木人艸</div>
+    </footer>
+
+    <!-- Fixed Floating CTAs -->
+    <div class="fixed bottom-4 right-4 flex flex-col gap-2 z-40">
+      <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" target="_blank" rel="noopener" class="rounded-full bg-amberdeep text-onyx px-4 py-3 font-semibold shadow-glow hover:brightness-108 transition" data-cta="float-line">加 LINE</a>
+      <a href="#contact" class="rounded-full bg-onyx border border-wheat/40 px-4 py-3 shadow-glow hover:brightness-108 transition" data-cta="float-form">填表單</a>
+    </div>
+
+    <!-- Lightbox Dialog -->
+    <dialog id="lightbox" class="lightbox-backdrop p-0 m-0 rounded-xl w-full max-w-5xl bg-transparent">
+      <button id="lightbox-close" class="absolute top-3 right-3 bg-onyx/80 rounded-full px-3 py-1 text-sm">關閉</button>
+      <img id="lightbox-img" src="" alt="預覽大圖" class="w-full h-auto rounded-xl" />
+    </dialog>
+
+    <!-- Scripts -->
+    <script>
+      // Year
+      document.getElementById('y').textContent = new Date().getFullYear();
+
+      // Smooth anchor scroll (native CSS behavior is okay in modern browsers, here we ensure older support)
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        })
+      })
+
+      // Lightbox
+      const dlg = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+      document.querySelectorAll('#gallery button[data-full]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-full');
+          img.src = src;
+          dlg.showModal();
+        })
+      });
+      closeBtn.addEventListener('click', () => dlg.close());
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+      // Simple form handler (GitHub Pages 無後端，僅示範)：
+      document.getElementById('quote-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('表單已送出（示範）。\n請將 <form action> 換成你的 Google 表單或 API。');
+      });
+    </script>
+  </body>
+</html>
