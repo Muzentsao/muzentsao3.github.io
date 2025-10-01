@@ -200,44 +200,45 @@
   </div>
 </section>
     
-    <!-- Gallery -->
-    <section id="gallery" class="bg-onyx">
-      <div class="max-w-6xl mx-auto px-4 py-16">
-        <h2 class="font-serif text-2xl mb-6">圖庫</h2>
-        <p class="text-sand mb-6">6–9 張，支援 Lightbox 檢視。</p>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-          <!-- Replace src with /assets/*.jpg -->
-          <button class="group relative overflow-hidden rounded-xl focus:outline-none" data-full="/assets/g1.jpg" aria-label="查看大圖">
-            <img src="/assets/g1.jpg" alt="萬聖節佈置示意1" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g2.jpg" aria-label="查看大圖">
-            <img src="/assets/g2.jpg" alt="萬聖節佈置示意2" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g3.jpg" aria-label="查看大圖">
-            <img src="/assets/g3.jpg" alt="萬聖節佈置示意3" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g4.jpg" aria-label="查看大圖">
-            <img src="/assets/g4.jpg" alt="萬聖節佈置示意4" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g5.jpg" aria-label="查看大圖">
-            <img src="/assets/g5.jpg" alt="萬聖節佈置示意5" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g6.jpg" aria-label="查看大圖">
-            <img src="/assets/g6.jpg" alt="萬聖節佈置示意6" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <!-- Optional 7–9 -->
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g7.jpg" aria-label="查看大圖">
-            <img src="/assets/g7.jpg" alt="萬聖節佈置示意7" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g8.jpg" aria-label="查看大圖">
-            <img src="/assets/g8.jpg" alt="萬聖節佈置示意8" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-          <button class="group relative overflow-hidden rounded-xl" data-full="/assets/g9.jpg" aria-label="查看大圖">
-            <img src="/assets/g9.jpg" alt="萬聖節佈置示意9" class="w-full h-44 md:h-56 object-cover opacity-90 group-hover:scale-105 transition" />
-          </button>
-        </div>
-      </div>
-    </section>
+    <!-- 活動案例展示（保留 id="gallery" 以維持錨點與 lightbox 運作） -->
+<section id="gallery" class="bg-onyx">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="font-serif text-2xl mb-6">活動案例展示</h2>
+    <p class="text-sand mb-6">精選 4 張案例照（可點擊放大檢視）。</p>
+
+    <!-- 2x2 網格 -->
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-3">
+      <!-- 1 -->
+      <button class="group relative overflow-hidden rounded-xl focus:outline-none"
+              data-full="/assets/g1.jpg" aria-label="查看大圖：案例 1">
+        <img src="/muzentsao3.github.io
+/LINE_ALBUM_2023.10.27 沈宛蓁300人 可迪恩萬聖節活動（南山敦南大樓）_231205_48.jpg" alt="萬聖節佈置案例 1"
+             class="w-full h-44 md:h-64 object-cover opacity-90 group-hover:scale-105 transition" />
+      </button>
+      <!-- 2 -->
+      <button class="group relative overflow-hidden rounded-xl"
+              data-full="/assets/g2.jpg" aria-label="查看大圖：案例 2">
+        <img src="/muzentsao3.github.io
+/LINE_ALBUM_2023.10.27 沈宛蓁300人 可迪恩萬聖節活動（南山敦南大樓）_231205_53.jpg"
+             class="w-full h-44 md:h-64 object-cover opacity-90 group-hover:scale-105 transition" />
+      </button>
+      <!-- 3 -->
+      <button class="group relative overflow-hidden rounded-xl"
+              data-full="/assets/g3.jpg" aria-label="查看大圖：案例 3">
+        <img src="muzentsao3.github.io
+/LINE_ALBUM_2023.10.27 沈宛蓁300人 可迪恩萬聖節活動（南山敦南大樓）_231205_54.jpg"
+             class="w-full h-44 md:h-64 object-cover opacity-90 group-hover:scale-105 transition" />
+      </button>
+      <!-- 4 -->
+      <button class="group relative overflow-hidden rounded-xl"
+              data-full="/assets/g4.jpg" aria-label="查看大圖：案例 4">
+        <img src="/muzentsao3.github.io
+/LINE_ALBUM_2023.10.27 沈宛蓁300人 可迪恩萬聖節活動（南山敦南大樓）_231205_58.jpg"
+             class="w-full h-44 md:h-64 object-cover opacity-90 group-hover:scale-105 transition" />
+      </button>
+    </div>
+  </div>
+</section>
 
     <!-- FAQ -->
     <section id="faq" class="bg-coal">
