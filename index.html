@@ -45,27 +45,30 @@
     </script>
 
     <style>
-      /* Custom hover brightness +8% */
-      .hover\:brightness-108:hover { filter: brightness(1.08); }
-      /* Lightbox */
-      .lightbox-backdrop { background: rgba(0,0,0,.9); }
-      .text-gradient { background: linear-gradient(180deg,#F3EEE6 0%, #E6D3B0 100%); -webkit-background-clip:text; background-clip:text; color: transparent; }
-      /* Reduce focus rings only to keyboard */
-      :focus-visible { outline: 2px solid #D88A3D; outline-offset: 2px; }
-    </style>
-    <style>
-  /* 強：用在主標題 */
-  .text-blur-strong{
+  /* 主標題：細描邊 + 多層柔光陰影 */
+  .text-clarity-strong{
+    -webkit-text-stroke: 1px rgba(0,0,0,.35);  /* Safari/Chrome */
+            text-stroke: 1px rgba(0,0,0,.35);  /* 其他瀏覽器忽略也沒關係 */
     text-shadow:
-      0 16px 40px rgba(0,0,0,.32),
-      0 16px 40px rgba(0,0,0,.32),
-      0 16px 40px rgba(0,0,0,.32);
+      0 1px 2px rgba(0,0,0,.45),
+      0 4px 10px rgba(0,0,0,.35),
+      0 10px 28px rgba(0,0,0,.30);
   }
-  /* 中：用在副標、按鈕文字 */
-  .text-blur-medium{
+
+  /* 副標與 CTA 文字：較輕量的柔光 */
+  .text-clarity-medium{
+    -webkit-text-stroke: .6px rgba(0,0,0,.28);
+            text-stroke: .6px rgba(0,0,0,.28);
     text-shadow:
-      0 8px 16px rgba(0,0,0,.40),
-      0 7px 15px rgba(0,0,0,.32);
+      0 1px 2px rgba(0,0,0,.40),
+      0 3px 10px rgba(0,0,0,.28);
+  }
+
+  /* 行動鈕：加外框讓邊緣更乾淨 */
+  .btn-ring{
+    box-shadow: 0 10px 24px rgba(0,0,0,.45);
+    outline: 1px solid rgba(255,255,255,.14);
+    outline-offset: -1px;
   }
 </style>
 
@@ -113,45 +116,24 @@
 
    <!-- Hero -->
 <section class="relative overflow-hidden min-h-[70vh]">
-  <!-- 背景圖與遮罩維持不變 -->
-  <div class="absolute inset-0 bg-coal">
-    <img
-      src="./LINE_ALBUM_2023.10.27%20沈宛蓁300人%20可迪恩萬聖節活動（南山敦南大樓）_231205_26.jpg"
-      alt="木人艸萬聖節活動服務現場實拍（南山敦南大樓）"
-      class="w-full h-full object-cover brightness-[.85] contrast-105"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-onyx/10 via-onyx/25 to-onyx/80"></div>
-  </div>
+  <h1 class="font-serif text-4xl md:text-6xl leading-tight text-clarity-strong">
+  木人艸萬聖節活動服務
+</h1>
 
-<!-- 內容置中：只有高斯模糊，沒有黑色面板 -->
-<div class="relative z-10 max-w-6xl mx-auto px-4 h-full flex items-center justify-center py-16">
+<p class="mt-4 max-w-2xl mx-auto text-sand text-clarity-medium">
+  深色奢華 × 暖光質感｜從餐點到場佈，一站式打造高級驚悚派對
+</p>
 
-  <!-- 文字與按鈕（蓋在模糊層上） -->
-  <div class="relative z-10 text-center px-6 md:px-10">
-    <h1 class="font-serif text-4xl md:text-6xl leading-tight
-               drop-shadow-[0_3px_12px_rgba(0,0,0,0.65)]">
-      木人艸萬聖節活動服務
-    </h1>
-
-    <p class="mt-4 max-w-2xl mx-auto text-sand
-              drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-      深色奢華 × 暖光質感｜從餐點到場佈，一站式打造高級驚悚派對
-    </p>
-
-    <div class="mt-8 flex flex-wrap gap-3 justify-center">
-      <a href="#plans"
-         class="inline-flex items-center rounded-full bg-amberdeep text-onyx
-                px-6 py-3 font-semibold shadow-2xl
-                hover:brightness-108 transition">
-        立刻看方案
-      </a>
-      <a href="#contact"
-         class="inline-flex items-center rounded-full border border-wheat/50
-                px-6 py-3 text-parchment/95
-                shadow-xl hover:brightness-108 transition">
-        加 LINE 詢價
-      </a>
-    </div>
+<div class="mt-8 flex flex-wrap gap-3 justify-center">
+  <a href="#plans"
+     class="inline-flex items-center rounded-full bg-amberdeep text-onyx px-6 py-3 font-semibold hover:brightness-108 transition btn-ring text-clarity-medium">
+    立刻看方案
+  </a>
+  <a href="#contact"
+     class="inline-flex items-center rounded-full border border-wheat/60 px-6 py-3 text-parchment/95 hover:brightness-108 transition btn-ring text-clarity-medium">
+    加 LINE 詢價
+  </a>
+</div>
   </div>
 </div>
 </section>
