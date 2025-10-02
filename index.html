@@ -154,54 +154,54 @@
 </section>
 
 
-<!-- Three selling points + Intro (two-column) -->
+<!-- 活動簡介 + 三賣點 -->
 <section class="bg-onyx">
   <div class="max-w-6xl mx-auto px-4 py-16">
 
     <!-- 活動簡介：左文右圖 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-      <!-- 左：文字靠左對齊 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center md:items-start gap-10 md:gap-12 mb-12">
+      <!-- 左：文字 -->
       <div>
         <h2 class="font-serif text-2xl md:text-3xl mb-3">活動簡介</h2>
-        <!-- 活動簡介段落：與另一站 1:1 -->
-       <p class="text-sand/90 max-w-3xl
-           text-[18px] md:text-[20px]
-           leading-relaxed md:leading-[1.9]">
-  木人艸為您量身打造的萬聖節活動服務，無論是公司聚會、私人派對還是家庭聚會，
-  我們都能提供獨具特色的萬聖節餐點和佈置服務，讓每一位來賓都沉浸在神秘的節日氛圍中。
-      </p>
+        <p class="text-sand/90 max-w-3xl
+                  text-[18px] md:text-[20px]
+                  leading-relaxed md:leading-[1.9]">
+          木人艸為您量身打造的萬聖節活動服務，無論是公司聚會、私人派對還是家庭聚會，
+          我們都能提供獨具特色的萬聖節餐點和佈置服務，讓每一位來賓都沉浸在神秘的節日氛圍中。
+        </p>
       </div>
-      
-<!-- 右：照片容器（與首頁一致風格：直式、圓角、陰影、3:4） -->
-<div class="w-full max-w-[640px] md:max-w-[680px] ml-auto
-            rounded-2xl overflow-hidden
-            shadow-[0_12px_28px_rgba(0,0,0,0.35)]
-            ring-1 ring-white/10
-            bg-black/10
-            aspect-[3/4]">
-  <img
-    src="./LINE_ALBUM_2023.10.27%20沈宛蓁300人%20可迪恩萬聖節活動（南山敦南大樓）_231205_51.jpg"
-    alt="萬聖節活動佈置與餐點現場"
-    class="w-full h-full object-cover object-[70%_35%]" />
-</div>
+
+      <!-- 右：照片（直式、圓角、陰影、3:4 比例，含 fallback） -->
+      <div class="w-full max-w-[640px] md:max-w-[680px] md:ml-auto
+                  rounded-2xl overflow-hidden
+                  shadow-[0_12px_28px_rgba(0,0,0,0.35)]
+                  ring-1 ring-white/10 bg-black/10
+                  aspect-[3/4]"
+           style="aspect-ratio: 3 / 4;">
+        <img
+          src="./LINE_ALBUM_2023.10.27%20沈宛蓁300人%20可迪恩萬聖節活動（南山敦南大樓）_231205_51.jpg"
+          alt="萬聖節活動佈置與餐點現場"
+          class="w-full h-full object-cover object-[70%_35%]"
+          loading="lazy" />
+      </div>
     </div>
 
     <!-- 三個賣點卡片 -->
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade">
-        <div class="text-gradient font-display text-xl">一站式佈置到撤場</div>
+      <article class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade">
+        <h3 class="text-gradient font-display text-xl">一站式佈置到撤場</h3>
         <p class="mt-2 text-sand">專人進出場與動線設計，現場無縫銜接。</p>
-      </div>
+      </article>
 
-      <div class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:60ms">
-        <div class="text-gradient font-display text-xl">客製主題與餐點</div>
+      <article class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:60ms">
+        <h3 class="text-gradient font-display text-xl">客製主題與餐點</h3>
         <p class="mt-2 text-sand">品牌色、道具、菜色皆可客製搭配。</p>
-      </div>
+      </article>
 
-      <div class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:120ms">
-        <div class="text-gradient font-display text-xl">專人現場服務</div>
+      <article class="p-6 rounded-2xl bg-coal/70 border border-graphite/60 shadow-glow transform transition hover:scale-[1.02] animate-fade" style="animation-delay:120ms">
+        <h3 class="text-gradient font-display text-xl">專人現場服務</h3>
         <p class="mt-2 text-sand">專業服務人員，維持場面與用餐品質。</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
