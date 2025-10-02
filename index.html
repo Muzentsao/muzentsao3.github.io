@@ -372,12 +372,33 @@
       <a href="#contact" class="rounded-full bg-onyx border border-wheat/40 px-4 py-3 shadow-glow hover:brightness-108 transition" data-cta="float-form">填表單</a>
     </div>
 
-    <!-- Lightbox Dialog -->
-    <dialog id="lightbox" class="lightbox-backdrop p-0 m-0 rounded-xl w-full max-w-5xl bg-transparent">
-      <button id="lightbox-close" class="absolute top-3 right-3 bg-onyx/80 rounded-full px-3 py-1 text-sm">關閉</button>
-      <img id="lightbox-img" src="" alt="預覽大圖" class="w-full h-auto rounded-xl" />
-    </dialog>
+    <!-- Better Lightbox -->
+<dialog id="lightbox" class="p-0 m-0 bg-transparent w-[min(92vw,1000px)]">
+  <div class="relative">
+    <!-- 圖片 -->
+    <img id="lightbox-img" src="" alt="預覽大圖" class="w-full h-auto rounded-xl shadow-2xl" />
 
+    <!-- 關閉 -->
+    <button id="lightbox-close"
+      class="absolute top-3 right-3 bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm">
+      關閉
+    </button>
+
+    <!-- 上一張 -->
+    <button id="lightbox-prev"
+      class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2
+             w-10 h-10 rounded-full bg-onyx/70 hover:bg-onyx text-parchment">
+      ‹
+    </button>
+
+    <!-- 下一張 -->
+    <button id="lightbox-next"
+      class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2
+             w-10 h-10 rounded-full bg-onyx/70 hover:bg-onyx text-parchment">
+      ›
+    </button>
+  </div>
+</dialog>
     <!-- Scripts -->
     <script>
       // Year
@@ -415,5 +436,58 @@
         alert('表單已送出（示範）。\n請將 <form action> 換成你的 Google 表單或 API。');
       });
     </script>
+    <script>
+  // 元件
+  const dlg  = document.getElementById('lightbox');
+  const img  = document.getElementById('lightbox-img');
+  const btnX = document.getElementById('lightbox-close');
+  const btnL = document.getElementById('lightbox-prev');
+  const btnR = document.getElementById('lightbox-next');
+
+  // 收集畫廊項目（維持你現有 #gallery 與 data-full）
+  const items = Array.from(document.querySelectorAll('#gallery [data-full]'));
+  let idx = 0;
+
+  function openAt(i){
+    idx = (i + items.length) % items.length;
+    img.src = items[idx].getAttribute('data-full');
+    dlg.showModal();
+    document.body.classList.add('overflow-hidden'); // 禁止背景滾動
+  }
+  function closeBox(){
+    dlg.close();
+    document.body.classList.remove('overflow-hidden');
+  }
+  function prev(){ openAt(idx - 1); }
+  function next(){ openAt(idx + 1); }
+
+  // 綁縮圖
+  items.forEach((el, i) => el.addEventListener('click', () => openAt(i)));
+
+  // 控制
+  btnX.addEventListener('click', closeBox);
+  btnL.addEventListener('click', prev);
+  btnR.addEventListener('click', next);
+
+  // 點黑幕關閉
+  dlg.addEventListener('click', e => { if (e.target === dlg) closeBox(); });
+
+  // 鍵盤
+  addEventListener('keydown', e => {
+    if (!dlg.open) return;
+    if (e.key === 'Escape') closeBox();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // 手機滑動切換
+  let sx = 0, dx = 0;
+  img.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+  img.addEventListener('touchmove',  e => { dx = e.touches[0].clientX - sx; }, {passive:true});
+  img.addEventListener('touchend',   () => {
+    if (Math.abs(dx) > 50) (dx > 0 ? prev() : next());
+    sx = dx = 0;
+  });
+</script>
   </body>
 </html>
