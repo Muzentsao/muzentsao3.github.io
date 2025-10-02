@@ -41,7 +41,6 @@
     }
   }
 </script>
-
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="木人艸萬聖節活動服務｜高級派對佈置與餐點" />
@@ -62,23 +61,41 @@
     </script>
     
     <style>
-  /* <dialog> 背景 */
+  /* 黑幕（只留一條） */
   #lightbox::backdrop{
     background: rgba(0,0,0,.85);
     backdrop-filter: blur(2px);
   }
-  /* 背景黑幕 */
-  #lightbox::backdrop { background: rgba(0,0,0,.85); backdrop-filter: blur(2px); }
- 
-  /* 全畫面黑幕 + 微模糊 */
-  #lightbox::backdrop{
-    background: rgba(0,0,0,.85);
-    backdrop-filter: blur(2px);
-  }
-</style>
 
+  /* 對話框開啟時：用 flex 置中 */
+  #lightbox[open]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  /* 外框：限制最大尺寸在視窗內，避免內部卷軸 */
+  #lightbox .frame{
+    max-width: 92vw;
+    max-height: 88vh;
+    position: relative;
+    overflow: visible;
+  }
+
+  /* 圖片：等比縮放，不超過視窗 */
+  #lightbox img{
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+  }
 </style>
-    
   </head>
 
   <body class="bg-onyx text-parchment font-sans antialiased">
@@ -383,111 +400,104 @@
     </div>
 
 
-<!-- Lightbox（置中顯示、不超過視窗） -->
-<dialog id="lightbox" class="p-0 m-0 bg-transparent">
-  <!-- 這層用 flex 讓內容在畫面置中 -->
-  <div class="w-screen min-h-screen flex items-center justify-center p-4 relative">
-    <!-- 關閉鍵 -->
+<!-- Lightbox（置中顯示、不超過視窗、無內部捲軸） -->
+<dialog id="lightbox">
+  <div class="frame">
     <button id="lightbox-close"
-      class="absolute top-4 right-4 bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm">
+      class="absolute top-3 right-3 bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm z-10">
       關閉
     </button>
 
-    <!-- 影像本體：等比縮放、最大不超過視窗 -->
-    <img id="lightbox-img" src="" alt="預覽大圖"
-         class="block w-auto h-auto max-w-[92vw] max-h-[88vh] rounded-xl shadow-2xl" />
+    <img id="lightbox-img" src="" alt="預覽大圖" class="rounded-xl shadow-2xl" />
   </div>
 </dialog>
-
-
     <!-- Scripts -->
-    <script>
-      // Year
-      document.getElementById('y').textContent = new Date().getFullYear();
+<script>
+  // 年份
+  const yEl = document.getElementById('y');
+  if (yEl) yEl.textContent = new Date().getFullYear();
 
-      // Smooth anchor scroll (native CSS behavior is okay in modern browsers, here we ensure older support)
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', (e) => {
-          const id = a.getAttribute('href').slice(1);
-          const el = document.getElementById(id);
-          if (el) {
-            e.preventDefault();
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        })
-      })
-
-      // Lightbox
-      const dlg = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      const closeBtn = document.getElementById('lightbox-close');
-      document.querySelectorAll('#gallery button[data-full]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const src = btn.getAttribute('data-full');
-          img.src = src;
-          dlg.showModal();
-        })
-      });
-      closeBtn.addEventListener('click', () => dlg.close());
-      dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-
-      // Simple form handler (GitHub Pages 無後端，僅示範)：
-      document.getElementById('quote-form').addEventListener('submit', (e) => {
+  // 平滑捲動到錨點
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
         e.preventDefault();
-        alert('表單已送出（示範）。\n請將 <form action> 換成你的 Google 表單或 API。');
-      });
-    </script>
-    <script>
-  // 元件
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ======= Lightbox（整合版）=======
   const dlg  = document.getElementById('lightbox');
   const img  = document.getElementById('lightbox-img');
   const btnX = document.getElementById('lightbox-close');
+  // 可能沒有左右鍵就容錯處理
   const btnL = document.getElementById('lightbox-prev');
   const btnR = document.getElementById('lightbox-next');
 
-  // 收集畫廊項目（維持你現有 #gallery 與 data-full）
+  // 收集畫廊項目（#gallery 底下凡是有 data-full 的都算）
   const items = Array.from(document.querySelectorAll('#gallery [data-full]'));
   let idx = 0;
 
   function openAt(i){
-  // ...設定 img.src 之後
-  lightbox.showModal();
-  document.body.classList.add('overflow-hidden');   // 禁止背景捲動
-}
-function closeBox(){
-  lightbox.close();
-  document.body.classList.remove('overflow-hidden');
-}
+    if (!dlg || !img || !items.length) return;
+    idx = (i + items.length) % items.length;
+    img.src = items[idx].getAttribute('data-full');
+    dlg.showModal();
+    document.body.classList.add('overflow-hidden');   // 開啟時鎖背景
+  }
+
+  function closeBox(){
+    if (!dlg) return;
+    dlg.close();
+    document.body.classList.remove('overflow-hidden'); // 關閉時恢復
+  }
+
   function prev(){ openAt(idx - 1); }
   function next(){ openAt(idx + 1); }
 
-  // 綁縮圖
+  // 縮圖點擊開啟
   items.forEach((el, i) => el.addEventListener('click', () => openAt(i)));
 
-  // 控制
-  btnX.addEventListener('click', closeBox);
-  btnL.addEventListener('click', prev);
-  btnR.addEventListener('click', next);
+  // 關閉鍵
+  if (btnX) btnX.addEventListener('click', closeBox);
 
-  // 點黑幕關閉
-  dlg.addEventListener('click', e => { if (e.target === dlg) closeBox(); });
+  // 點黑幕關閉（點到 <dialog> 本體才關）
+  if (dlg) dlg.addEventListener('click', e => { if (e.target === dlg) closeBox(); });
 
-  // 鍵盤
-  addEventListener('keydown', e => {
-    if (!dlg.open) return;
-    if (e.key === 'Escape') closeBox();
-    if (e.key === 'ArrowLeft') prev();
+  // 鍵盤操作
+  window.addEventListener('keydown', e => {
+    if (!dlg || !dlg.open) return;
+    if (e.key === 'Escape')     closeBox();
+    if (e.key === 'ArrowLeft')  prev();
     if (e.key === 'ArrowRight') next();
   });
 
+  // 左右切換（若有提供按鈕）
+  if (btnL) btnL.addEventListener('click', prev);
+  if (btnR) btnR.addEventListener('click', next);
+
   // 手機滑動切換
-  let sx = 0, dx = 0;
-  img.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
-  img.addEventListener('touchmove',  e => { dx = e.touches[0].clientX - sx; }, {passive:true});
-  img.addEventListener('touchend',   () => {
-    if (Math.abs(dx) > 50) (dx > 0 ? prev() : next());
-    sx = dx = 0;
-  });
+  if (img) {
+    let sx = 0, dx = 0;
+    img.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+    img.addEventListener('touchmove',  e => { dx = e.touches[0].clientX - sx; }, {passive:true});
+    img.addEventListener('touchend',   () => {
+      if (Math.abs(dx) > 50) (dx > 0 ? prev() : next());
+      sx = dx = 0;
+    });
+  }
+
+  // 表單示範（容錯：頁面沒表單就不綁）
+  const form = document.getElementById('quote-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('表單已送出（示範）。\n請將 <form action> 換成你的 Google 表單或 API。');
+    });
+  }
 </script>
   </body>
 </html>
