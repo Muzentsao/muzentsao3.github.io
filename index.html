@@ -69,6 +69,12 @@
   }
   /* 背景黑幕 */
   #lightbox::backdrop { background: rgba(0,0,0,.85); backdrop-filter: blur(2px); }
+ 
+  /* 全畫面黑幕 + 微模糊 */
+  #lightbox::backdrop{
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(2px);
+  }
 </style>
 
 </style>
@@ -376,18 +382,23 @@
       <a href="#contact" class="rounded-full bg-onyx border border-wheat/40 px-4 py-3 shadow-glow hover:brightness-108 transition" data-cta="float-form">填表單</a>
     </div>
 
-    <!-- Better Lightbox -->
-<!-- Lightbox Dialog -->
-<dialog id="lightbox" class="p-0 m-0 bg-transparent w-[min(94vw,1100px)]">
-  <div class="relative">
-    <button id="lightbox-close"
-      class="absolute top-3 right-3 bg-onyx/80 rounded-full px-3 py-1 text-sm">關閉</button>
 
-    <!-- 關鍵：max-w / max-h 限制，等比縮放，不會出現內部卷軸 -->
+<!-- Lightbox（置中顯示、不超過視窗） -->
+<dialog id="lightbox" class="p-0 m-0 bg-transparent">
+  <!-- 這層用 flex 讓內容在畫面置中 -->
+  <div class="w-screen min-h-screen flex items-center justify-center p-4 relative">
+    <!-- 關閉鍵 -->
+    <button id="lightbox-close"
+      class="absolute top-4 right-4 bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm">
+      關閉
+    </button>
+
+    <!-- 影像本體：等比縮放、最大不超過視窗 -->
     <img id="lightbox-img" src="" alt="預覽大圖"
-         class="block w-auto h-auto max-w-[92vw] max-h-[88vh] mx-auto rounded-xl shadow-2xl" />
+         class="block w-auto h-auto max-w-[92vw] max-h-[88vh] rounded-xl shadow-2xl" />
   </div>
 </dialog>
+
 
     <!-- Scripts -->
     <script>
