@@ -67,6 +67,10 @@
     background: rgba(0,0,0,.85);
     backdrop-filter: blur(2px);
   }
+  /* 背景黑幕 */
+  #lightbox::backdrop { background: rgba(0,0,0,.85); backdrop-filter: blur(2px); }
+</style>
+
 </style>
     
   </head>
@@ -373,32 +377,18 @@
     </div>
 
     <!-- Better Lightbox -->
-<dialog id="lightbox" class="p-0 m-0 bg-transparent w-[min(92vw,1000px)]">
+<!-- Lightbox Dialog -->
+<dialog id="lightbox" class="p-0 m-0 bg-transparent w-[min(94vw,1100px)]">
   <div class="relative">
-    <!-- 圖片 -->
-    <img id="lightbox-img" src="" alt="預覽大圖" class="w-full h-auto rounded-xl shadow-2xl" />
-
-    <!-- 關閉 -->
     <button id="lightbox-close"
-      class="absolute top-3 right-3 bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm">
-      關閉
-    </button>
+      class="absolute top-3 right-3 bg-onyx/80 rounded-full px-3 py-1 text-sm">關閉</button>
 
-    <!-- 上一張 -->
-    <button id="lightbox-prev"
-      class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2
-             w-10 h-10 rounded-full bg-onyx/70 hover:bg-onyx text-parchment">
-      ‹
-    </button>
-
-    <!-- 下一張 -->
-    <button id="lightbox-next"
-      class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2
-             w-10 h-10 rounded-full bg-onyx/70 hover:bg-onyx text-parchment">
-      ›
-    </button>
+    <!-- 關鍵：max-w / max-h 限制，等比縮放，不會出現內部卷軸 -->
+    <img id="lightbox-img" src="" alt="預覽大圖"
+         class="block w-auto h-auto max-w-[92vw] max-h-[88vh] mx-auto rounded-xl shadow-2xl" />
   </div>
 </dialog>
+
     <!-- Scripts -->
     <script>
       // Year
@@ -449,15 +439,14 @@
   let idx = 0;
 
   function openAt(i){
-    idx = (i + items.length) % items.length;
-    img.src = items[idx].getAttribute('data-full');
-    dlg.showModal();
-    document.body.classList.add('overflow-hidden'); // 禁止背景滾動
-  }
-  function closeBox(){
-    dlg.close();
-    document.body.classList.remove('overflow-hidden');
-  }
+  // ...設定 img.src 之後
+  lightbox.showModal();
+  document.body.classList.add('overflow-hidden');   // 禁止背景捲動
+}
+function closeBox(){
+  lightbox.close();
+  document.body.classList.remove('overflow-hidden');
+}
   function prev(){ openAt(idx - 1); }
   function next(){ openAt(idx + 1); }
 
