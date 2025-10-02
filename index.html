@@ -60,40 +60,42 @@
       }
     </script>
     
-    <style>
-  /* 黑幕（只留一條） */
+<style>
+  /* 黑幕 */
   #lightbox::backdrop{
     background: rgba(0,0,0,.85);
     backdrop-filter: blur(2px);
   }
 
-  /* 對話框開啟時：用 flex 置中 */
+  /* 開啟時：鋪滿畫面、用 Grid 置中，且不產生內部捲動 */
   #lightbox[open]{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: 0;
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
     padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden; /* 關鍵：不要在對話框本體出捲軸 */
   }
 
-  /* 外框：限制最大尺寸在視窗內，避免內部卷軸 */
-  #lightbox .frame{
-    max-width: 92vw;
-    max-height: 88vh;
-    position: relative;
-    overflow: visible;
-  }
-
-  /* 圖片：等比縮放，不超過視窗 */
-  #lightbox img{
+  /* 圖片：等比縮放、不超過視窗 */
+  #lightbox-img{
     display: block;
     width: auto;
     height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 92vw;  /* 水平至少留邊 */
+    max-height: 88vh; /* 垂直至少留邊 */
     border-radius: 12px;
     box-shadow: 0 20px 50px rgba(0,0,0,.45);
+  }
+
+  /* 右上角關閉鍵位置 */
+  #lightbox-close{
+    position: fixed;
+    top: 16px;
+    right: 16px;
   }
 </style>
   </head>
@@ -401,65 +403,79 @@
 
 
 <!-- Lightbox（置中顯示、不超過視窗、無內部捲軸） -->
+<!-- Lightbox（置中、無內部捲動） -->
 <dialog id="lightbox">
-  <div class="frame">
-    <button id="lightbox-close"
-      class="absolute top-3 right-3 bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm z-10">
-      關閉
-    </button>
-
-    <img id="lightbox-img" src="" alt="預覽大圖" class="rounded-xl shadow-2xl" />
-  </div>
+  <button id="lightbox-close"
+          class="bg-onyx/80 hover:bg-onyx text-parchment rounded-full px-3 py-1 text-sm">
+    關閉
+  </button>
+  <img id="lightbox-img" src="" alt="預覽大圖" />
 </dialog>
     <!-- Scripts -->
 <script>
-  // 年份
+  // ===== 年份 =====
   const yEl = document.getElementById('y');
   if (yEl) yEl.textContent = new Date().getFullYear();
 
-  // 平滑捲動到錨點
+  // ===== 錨點平滑捲動 =====
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href').slice(1);
       const el = document.getElementById(id);
-      if (el) {
-        e.preventDefault();
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  // ======= Lightbox（整合版）=======
+  // ===== Lightbox（整合、強化背景鎖定）=====
   const dlg  = document.getElementById('lightbox');
   const img  = document.getElementById('lightbox-img');
   const btnX = document.getElementById('lightbox-close');
-  // 可能沒有左右鍵就容錯處理
-  const btnL = document.getElementById('lightbox-prev');
-  const btnR = document.getElementById('lightbox-next');
+  const btnL = document.getElementById('lightbox-prev'); // 可能不存在
+  const btnR = document.getElementById('lightbox-next'); // 可能不存在
 
-  // 收集畫廊項目（#gallery 底下凡是有 data-full 的都算）
-  const items = Array.from(document.querySelectorAll('#gallery [data-full]'));
+  const thumbs = Array.from(document.querySelectorAll('#gallery [data-full]'));
   let idx = 0;
 
+  // 背景鎖定（iOS 也穩）：把 body 固定住並記住捲動位置
+  let savedY = 0;
+  function lockBodyScroll(){
+    savedY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  }
+  function unlockBodyScroll(){
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, savedY);
+  }
+
   function openAt(i){
-    if (!dlg || !img || !items.length) return;
-    idx = (i + items.length) % items.length;
-    img.src = items[idx].getAttribute('data-full');
+    if (!dlg || !img || !thumbs.length) return;
+    idx = (i + thumbs.length) % thumbs.length;
+    img.src = thumbs[idx].getAttribute('data-full');
     dlg.showModal();
-    document.body.classList.add('overflow-hidden');   // 開啟時鎖背景
+    lockBodyScroll();
   }
 
   function closeBox(){
     if (!dlg) return;
     dlg.close();
-    document.body.classList.remove('overflow-hidden'); // 關閉時恢復
+    unlockBodyScroll();
   }
 
   function prev(){ openAt(idx - 1); }
   function next(){ openAt(idx + 1); }
 
   // 縮圖點擊開啟
-  items.forEach((el, i) => el.addEventListener('click', () => openAt(i)));
+  thumbs.forEach((el, i) => el.addEventListener('click', () => openAt(i), {passive:true}));
 
   // 關閉鍵
   if (btnX) btnX.addEventListener('click', closeBox);
@@ -475,7 +491,7 @@
     if (e.key === 'ArrowRight') next();
   });
 
-  // 左右切換（若有提供按鈕）
+  // 左右切換（若有提供按鈕才綁）
   if (btnL) btnL.addEventListener('click', prev);
   if (btnR) btnR.addEventListener('click', next);
 
@@ -490,7 +506,7 @@
     });
   }
 
-  // 表單示範（容錯：頁面沒表單就不綁）
+  // ===== 表單示範（頁面沒有就略過）=====
   const form = document.getElementById('quote-form');
   if (form) {
     form.addEventListener('submit', (e) => {
