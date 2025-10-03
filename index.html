@@ -103,6 +103,12 @@
     top: 16px;
     right: 16px;
   }
+  
+  html{
+    scroll-behavior: smooth;     /* 全站平滑捲動 */
+    scroll-padding-top: 80px;    /* 預留 ~80px，依你的 sticky header 高度微調 64–88 */
+  }
+  /* （保留你原本的 lightbox CSS 不變） */
 </style>
   </head>
 
@@ -165,7 +171,7 @@
 </section>
 
 <!-- 活動簡介 + 三賣點 -->
-<section class="bg-onyx">
+<section id="features" class="bg-onyx">
 <div class="max-w-6xl mx-auto px-4 py-16">
 
   <!-- 活動簡介：左文右圖（水平置中） -->
