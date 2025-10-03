@@ -339,50 +339,59 @@
         <p class="text-sand mb-6">請留下活動資訊，我們將於1–2個工作日回覆。</p>
 
         <div class="grid md:grid-cols-2 gap-8">
-          <form action="#" method="POST" class="space-y-4" id="quote-form">
-            <!-- TODO: 將 action 換成你的 Google 表單或後端 API -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label class="block">
-                <span class="text-sm">姓名/公司</span>
-                <input name="name" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="王小姐／木人艸" />
-              </label>
-              <label class="block">
-                <span class="text-sm">活動日期</span>
-                <input type="date" name="date" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" />
-              </label>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label class="block">
-                <span class="text-sm">人數</span>
-                <input type="number" min="1" step="1" name="people" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="40" />
-              </label>
-              <label class="block">
-                <span class="text-sm">預算（NT$）</span>
-                <input type="number" min="0" step="1000" name="budget" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="35000" />
-              </label>
-            </div>
-            <label class="block">
-              <span class="text-sm">場地地址</span>
-              <input name="address" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="台北市 ×× 區 ×× 路 ×× 號 × 樓" />
-            </label>
-            <label class="block">
-  <span class="text-sm">聯絡電話</span>
-  <input
-    type="tel"
-    name="phone"
-    required
-    class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3"
-    placeholder="0912-345-678"
-    inputmode="tel"
-    pattern="^0\\d{1,2}-?\\d{3,4}-?\\d{3,4}$|^09\\d{2}-?\\d{3}-?\\d{3}$"
-    title="請輸入市話(02-1234-5678)或手機(0912-345-678)格式"
-  />
-</label>
-            <div class="flex items-center gap-3 pt-2">
-              <button type="submit" class="rounded-full bg-amberdeep text-onyx px-6 py-3 font-semibold shadow-glow hover:brightness-108 transition" data-cta="form-submit">送出表單</button>
-            </div>
-            <p class="text-xs text-sand/70">我們重視您的隱私，資料僅用於本次服務聯繫。</p>
-          </form>
+          <form action="https://formspree.io/f/mblzypeq" method="POST" class="space-y-4" id="quote-form" accept-charset="UTF-8" autocomplete="on">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm">姓名/公司</span>
+      <input name="name" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="王小姐／木人艸" />
+    </label>
+    <label class="block">
+      <span class="text-sm">活動日期</span>
+      <input type="date" name="date" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" />
+    </label>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <label class="block">
+      <span class="text-sm">人數</span>
+      <input type="number" min="1" step="1" name="people" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="40" />
+    </label>
+    <label class="block">
+      <span class="text-sm">預算（NT$）</span>
+      <input type="number" min="0" step="1000" name="budget" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="35000" />
+    </label>
+  </div>
+
+  <label class="block">
+    <span class="text-sm">場地地址</span>
+    <input name="address" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="台北市 ×× 區 ×× 路 ×× 號 × 樓" />
+  </label>
+
+  <label class="block">
+    <span class="text-sm">聯絡電話</span>
+    <input
+      type="tel"
+      name="phone"
+      required
+      class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3"
+      placeholder="0912-345-678"
+      inputmode="tel"
+      pattern="^0\d{1,2}-?\d{3,4}-?\d{3,4}$|^09\d{2}-?\d{3}-?\d{3}$"
+      title="請輸入市話(02-1234-5678)或手機(0912-345-678)格式"
+    />
+  </label>
+
+  <!-- 可選：郵件主旨 / 送出後導向 / 蜜罐 -->
+  <input type="hidden" name="_subject" value="萬聖節活動洽詢（網站表單）">
+  <input type="hidden" name="_next" value="https://muzentsao.github.io/muzentsao3.github.io/#contact">
+  <input type="text" name="_gotcha" style="display:none">
+
+  <div class="flex items-center gap-3 pt-2">
+    <button type="submit" class="rounded-full bg-amberdeep text-onyx px-6 py-3 font-semibold shadow-glow hover:brightness-108 transition" data-cta="form-submit">送出表單</button>
+  </div>
+<p id="form-status" class="text-sm text-sand/80"></p>
+  <p class="text-xs text-sand/70">我們重視您的隱私，資料僅用於本次服務聯繫。</p>
+</form>
 
           <aside class="p-6 rounded-2xl bg-coal border border-graphite/60 shadow-glow">
             <h3 class="font-serif text-xl">小提醒</h3>
@@ -395,6 +404,35 @@
         </div>
       </div>
     </section>
+<script>
+(() => {
+  const form = document.getElementById('quote-form');
+  const status = document.getElementById('form-status');
+  if (!form || !status) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = '送出中…';
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch('https://formspree.io/f/mblzypeq', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      });
+      if (res.ok) {
+        status.textContent = '已送出，我們將於 1–2 個工作日回覆您。';
+        form.reset();
+      } else {
+        status.textContent = '送出失敗，請稍後再試或改用電話聯繫。';
+      }
+    } catch (err) {
+      status.textContent = '送出時發生錯誤，請稍後再試。';
+    }
+  });
+})();
+</script>
 
    <footer class="bg-coal text-parchment border-t border-graphite/60">
   <div class="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:gap-8 md:grid-cols-[1.2fr_1fr_1fr] items-start">
@@ -601,14 +639,14 @@
     });
   }
 
-  // ===== 表單示範（頁面沒有就略過）=====
-  const form = document.getElementById('quote-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('表單已送出（示範）。\n請將 <form action> 換成你的 Google 表單或 API。');
-    });
-  }
+// const form = document.getElementById('quote-form');
+// if (form) {
+//   form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     alert('表單已送出（示範）。');
+//   });
+// }
+  
 </script>
   </body>
 </html>
