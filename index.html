@@ -174,15 +174,14 @@
     </div>
   </div>
 
-<!-- 置底置中的向下捲動，不占版面、不影響行距 -->
+<!-- 向下捲動：置底置中 + 跳動特效 -->
 <a href="#features"
    class="absolute bottom-6 left-1/2 -translate-x-1/2
-          group flex flex-col items-center
-          text-white/90 hover:text-white transition-colors"
+          flex flex-col items-center text-white/90
+          z-30"
    aria-label="向下捲動">
-  <span class="text-xs tracking-wide">向下捲動</span>
-  <i class="fa-solid fa-chevron-down text-2xl mt-1 animate-bounce
-            group-hover:translate-y-0.5 transition-transform"></i>
+  <span class="text-sm tracking-wide">向下捲動</span>
+  <i class="fa-solid fa-chevron-down text-xl mt-1 animate-bounce"></i>
 </a>
 </section>
 
