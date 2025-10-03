@@ -365,16 +365,19 @@
               <span class="text-sm">場地地址</span>
               <input name="address" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="台北市 ×× 區 ×× 路 ×× 號 × 樓" />
             </label>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label class="block">
-                <span class="text-sm">聯絡方式（LINE）</span>
-                <input name="line" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="@yourlineid" />
-              </label>
-              <label class="block">
-                <span class="text-sm">聯絡方式（Email）</span>
-                <input type="email" name="email" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="you@example.com" />
-              </label>
-            </div>
+            <label class="block">
+  <span class="text-sm">聯絡電話</span>
+  <input
+    type="tel"
+    name="phone"
+    required
+    class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3"
+    placeholder="0912-345-678"
+    inputmode="tel"
+    pattern="^0\\d{1,2}-?\\d{3,4}-?\\d{3,4}$|^09\\d{2}-?\\d{3}-?\\d{3}$"
+    title="請輸入市話(02-1234-5678)或手機(0912-345-678)格式"
+  />
+</label>
             <div class="flex items-center gap-3 pt-2">
               <button type="submit" class="rounded-full bg-amberdeep text-onyx px-6 py-3 font-semibold shadow-glow hover:brightness-108 transition" data-cta="form-submit">送出表單</button>
             </div>
