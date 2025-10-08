@@ -308,14 +308,14 @@
               <span>預約流程與時程建議？</span>
               <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
             </summary>
-            <p class="mt-2 text-sand">建議盡早詢檔以保留時段；確認內容後開立估價單，依報價單條款完成定金即可排程製作與佈置規劃。細節（到場時間、動線、插座位置、桌數與尺寸）將於行前確認單內核對。</p>
+            <p class="mt-2 text-sand">為確保您的活動順利進行，建議至少提前兩週與我們確認需求，並於收到報價單後五日內支付定金，以確保預訂檔期及餐點設計。</p>
           </details>
           <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:60ms">
             <summary class="cursor-pointer list-none flex items-center justify-between">
               <span>最小金額與人數？</span>
               <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
             </summary>
-            <p class="mt-2 text-sand">建議最低 NT$20,000 起，20 人以上更具CP值，可彈性客製。</p>
+            <p class="mt-2 text-sand">建議最低 NT$30,000 起，可彈性客製。</p>
           </details>
           <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:120ms">
             <summary class="cursor-pointer list-none flex items-center justify-between">
@@ -329,7 +329,7 @@
               <span>電力需求與設備？</span>
               <span class="opacity-60 group-open:rotate-180 transition">⌄</span>
             </summary>
-            <p class="mt-2 text-sand">一般110V插座2–3處即可。需乾冰或加熱設備時，將於估價單註明。</p>
+            <p class="mt-2 text-sand">一般110V插座2–3處即可。示規模需乾冰或加熱設備時，將於估價單註明。</p>
           </details>
           <details class="group rounded-xl border border-graphite/60 bg-onyx/60 p-4 animate-fade" style="animation-delay:240ms">
             <summary class="cursor-pointer list-none flex items-center justify-between">
@@ -371,6 +371,26 @@
       <input type="number" min="0" step="1000" name="budget" class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" placeholder="35000" />
     </label>
   </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <label class="block">
+    <span class="text-sm">活動日期</span>
+    <input type="date" name="date" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3" />
+  </label>
+
+  <!-- 活動類型 新增的部分 -->
+  <label class="block">
+    <span class="text-sm">活動類型<span class="text-red-500">＊</span></span>
+    <select name="activity_type" required class="mt-1 w-full rounded-xl bg-coal border border-graphite/60 px-4 py-3">
+      <option value="">請選擇活動類型</option>
+      <option value="私人派對">私人派對</option>
+      <option value="公司團建">公司團建</option>
+      <option value="生日慶典">生日慶典</option>
+      <option value="周年慶典">周年慶典</option>
+      <option value="朋友聚會">朋友聚會</option>
+      <option value="其他活動">其他活動</option>
+    </select>
+  </label>
+</div>
 
   <label class="block">
     <span class="text-sm">場地地址</span>
